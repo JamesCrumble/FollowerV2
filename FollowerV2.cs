@@ -1702,9 +1702,9 @@ namespace FollowerV2
             //LogMsgWithVerboseDebug($"  distance: {distance}");
             //LogMsgWithVerboseDebug($"  proximity: {Settings.FollowerModeSettings.LeaderProximityRadius.Value}");
             bool outsideBorders = distance > Settings.FollowerModeSettings.LeaderProximityRadius.Value;
-            bool distanceCancelling = distance < this.Settings.FollowerModeSettings.FollowingDistanceCancelling.Value;
+            bool distanceCancelling = distance < Settings.FollowerModeSettings.FollowingDistanceCancelling.Value;
 
-            return leaderNotEmpty && outsideBorders;
+            return leaderNotEmpty && outsideBorders && distanceCancelling;
         }
 
         private bool BtCanTick()
